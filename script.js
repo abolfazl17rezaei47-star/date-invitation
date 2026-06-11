@@ -335,10 +335,52 @@ function showNoteField() {
 
 /* FINISH */
 
-finishBtn.addEventListener("click", () => {
+finishBtn.addEventListener("click", async () => {
 
-    answers.note =
-        noteInput.value.trim();
+    answers.note = noteInput.value.trim();
+
+    try {
+
+        await fetch(
+            "https://api.web3forms.com/submit",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: JSON.stringify({
+
+                    access_key:
+                    "256f24e0-22bf-4b2d-8ee8-899776a7a813",
+
+                    subject:
+                    "🎉 یک دیت جدید ثبت شد!",
+
+                    from_name:
+                    "Date Invitation",
+
+                    place:
+                    answers.place,
+
+                    food:
+                    answers.food,
+
+                    time:
+                    answers.time,
+
+                    note:
+                    answers.note || "ندارد"
+
+                })
+            }
+        );
+
+    } catch (error) {
+
+        console.log(error);
+
+    }
 
     showResult();
 
