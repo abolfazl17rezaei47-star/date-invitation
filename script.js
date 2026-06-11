@@ -339,42 +339,40 @@ finishBtn.addEventListener("click", async () => {
 
     answers.note = noteInput.value.trim();
 
+    const formData = new FormData();
+
+    formData.append(
+        "entry.2809094",
+        answers.place || ""
+    );
+
+    formData.append(
+        "entry.677767653",
+        answers.food || ""
+    );
+
+    formData.append(
+        "entry.1482333642",
+        answers.time || ""
+    );
+
+    formData.append(
+        "entry.1774693432",
+        answers.note || ""
+    );
+
     try {
 
         await fetch(
-            "https://api.web3forms.com/submit",
+            "https://docs.google.com/forms/d/e/1FAIpQLSfKDcM-z24CYr-LSioLGqkhO0TY72F0AVRtnuybFk2dCBvHmQ/formResponse",
             {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Accept": "application/json"
-                },
-                body: JSON.stringify({
-
-                    access_key:
-                    "256f24e0-22bf-4b2d-8ee8-899776a7a813",
-
-                    subject:
-                    "🎉 یک دیت جدید ثبت شد!",
-
-                    from_name:
-                    "Date Invitation",
-
-                    place:
-                    answers.place,
-
-                    food:
-                    answers.food,
-
-                    time:
-                    answers.time,
-
-                    note:
-                    answers.note || "ندارد"
-
-                })
+                mode: "no-cors",
+                body: formData
             }
         );
+
+        console.log("Saved!");
 
     } catch (error) {
 
