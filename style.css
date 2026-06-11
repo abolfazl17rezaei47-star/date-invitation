@@ -1,0 +1,413 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    min-height:100vh;
+
+    overflow:hidden;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-family:Tahoma,sans-serif;
+
+    background:black;
+
+    transition:1s ease;
+}
+
+/* هیپنوتیزم */
+
+.hypnosis{
+
+    position:fixed;
+
+    width:250vmax;
+    height:250vmax;
+
+    border-radius:50%;
+
+    background:
+    repeating-radial-gradient(
+        circle,
+        white 0px,
+        white 15px,
+        black 15px,
+        black 30px
+    );
+
+    animation:spin 6s linear infinite;
+
+    z-index:1;
+
+    opacity:1;
+
+    transition:1s ease;
+}
+
+@keyframes spin{
+
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+/* شمارش */
+
+#countdown{
+
+    position:absolute;
+
+    z-index:9999;
+
+    color:white;
+
+    font-size:100px;
+
+    font-weight:bold;
+
+    text-align:center;
+
+    -webkit-text-stroke:3px black;
+
+    text-shadow:
+    0 0 20px black,
+    0 0 40px black;
+
+    animation:pulse 1s infinite;
+}
+
+@keyframes pulse{
+
+    0%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.15);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+}
+
+/* کارت */
+
+.glass-card{
+
+    width:min(90vw,520px);
+
+    padding:30px;
+
+    border-radius:30px;
+
+    background:
+    rgba(255,255,255,.08);
+
+    backdrop-filter:blur(20px);
+
+    border:
+    1px solid rgba(255,255,255,.12);
+
+    text-align:center;
+
+    color:white;
+
+    z-index:100;
+}
+
+/* سوال */
+
+#questionBox{
+
+    display:none;
+}
+
+.hello,
+.subtitle,
+#hello3{
+
+    opacity:0;
+
+    transition:.8s;
+}
+
+.hello{
+
+    font-size:22px;
+
+    margin-bottom:12px;
+}
+
+.subtitle{
+
+    margin-bottom:18px;
+}
+
+#hello3{
+
+    font-size:38px;
+
+    line-height:1.8;
+
+    margin-bottom:30px;
+}
+
+/* دکمه ها */
+
+.buttons{
+
+    position:relative;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+}
+
+button{
+
+    border:none;
+
+    cursor:pointer;
+
+    border-radius:18px;
+
+    padding:15px 28px;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    transition:.25s;
+}
+
+#yesBtn{
+
+    background:white;
+
+    color:black;
+}
+
+#noBtn{
+    background:#ff4d4d;
+    color:white;
+}
+
+/* قلب */
+
+#heartScene{
+
+    position:fixed;
+
+    inset:0;
+
+    display:none;
+
+    z-index:10000;
+}
+
+#heartLeft,
+#heartRight{
+
+    position:absolute;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    font-size:90px;
+}
+
+#heartLeft{
+
+    left:-120px;
+}
+
+#heartRight{
+
+    right:-120px;
+}
+
+#heartCenter{
+
+    position:absolute;
+
+    top:50%;
+    left:50%;
+
+    transform:
+    translate(-50%,-50%)
+    scale(.1);
+
+    font-size:150px;
+
+    opacity:0;
+
+    transition:.6s;
+}
+
+/* گربه */
+
+#catScene{
+
+    position:absolute;
+
+    display:none;
+
+    z-index:10001;
+
+    text-align:center;
+
+    color:white;
+}
+
+#catGif{
+
+    width:280px;
+
+    max-width:80vw;
+}
+
+#catTitle{
+
+    margin-top:15px;
+
+    font-size:36px;
+
+    opacity:0;
+
+    transition:.8s;
+}
+
+#catText{
+
+    margin-top:10px;
+
+    opacity:0;
+
+    transition:.8s;
+}
+
+/* فرم */
+
+#formBox{
+
+    display:none;
+}
+
+#progress{
+
+    margin-bottom:15px;
+}
+
+#questionTitle{
+
+    font-size:30px;
+
+    line-height:1.8;
+
+    margin-bottom:25px;
+}
+
+#options{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+}
+
+.option-btn{
+
+    background:white;
+
+    color:black;
+}
+
+#noteContainer{
+
+    display:none;
+}
+
+#noteInput{
+
+    width:100%;
+
+    height:140px;
+
+    border:none;
+
+    border-radius:18px;
+
+    padding:15px;
+
+    resize:none;
+
+    background:
+    rgba(255,255,255,.1);
+
+    color:white;
+
+    margin-bottom:15px;
+}
+
+#finishBtn{
+
+    width:100%;
+
+    background:white;
+
+    color:black;
+}
+
+/* نتیجه */
+
+#resultBox{
+
+    display:none;
+}
+
+#resultContent{
+
+    line-height:2.2;
+}
+
+/* موبایل */
+
+@media(max-width:768px){
+
+    #hello3{
+
+        font-size:28px;
+    }
+
+    #countdown{
+
+        font-size:70px;
+    }
+
+    #catGif{
+
+        width:220px;
+    }
+
+    #heartCenter{
+
+        font-size:120px;
+    }
+}
