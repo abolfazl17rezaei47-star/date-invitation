@@ -1,5 +1,3 @@
-alert("SCRIPT VERSION 999");
-
 const countdown = document.getElementById("countdown");
 
 const hypnosis = document.getElementById("hypnosis");
